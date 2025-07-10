@@ -1,0 +1,24 @@
+
+
+.backgroundNav{
+    background-color: #032603;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.info{
+    background-color: #41DA691A;
+    color: #41DA69;
+    width: 155px;
+    height: 32px;
+    border-radius: 200px;
+    padding: 0;
+    gap: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+}
