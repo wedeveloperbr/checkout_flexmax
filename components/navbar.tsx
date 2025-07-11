@@ -7,28 +7,30 @@ import {
 
 export default function Navbar(){
     return(
-        <div className={css.backgroundNav}>
-            <Container>
-                <Row>
-                    <Col>
-                        <div>
-                            <img src="/logo.png" alt="Logo" style={{ width: '150px', height: 'auto' }} />
-                        </div>
-                    </Col>
-                    <Col className="d-flex justify-content-end align-items-center">
-                        <div className={css.info}>
+        <div>
+            <div className={css.backgroundNav}>
+                <Container>
+                    <Row>
+                        <Col>
                             <div>
-                                <ShieldCheck size={20} color="#41DA69" />
+                                <img src="/logo.png" alt="Logo" style={{ width: '150px', height: 'auto' }} />
                             </div>
-                            <div>
-                                Compra segura
+                        </Col>
+                        <Col className="d-flex justify-content-end align-items-center">
+                            <div className={css.info}>
+                                <div>
+                                    <ShieldCheck size={20} color="#41DA69" />
+                                </div>
+                                <div>
+                                    Compra segura
+                                </div>
                             </div>
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
             <div className={css.backgroundOferta}>
-                <div>
+                <div className={css.textOferta}>
                     Está oferta termina em: <span className={css.time}> 00:00:00</span>
                 </div>
             </div>

@@ -5,6 +5,7 @@
     padding: 20px 0;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .info{
@@ -21,4 +22,27 @@
     font-family: Poppins, sans-serif;
     font-weight: 500;
     font-size: 12px;
+}
+
+.backgroundOferta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #41DA69;
+    padding: 8px
+}
+
+.textOferta{
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.textFooter{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    text-align: center;
+    margin-top: 20px;
 }
