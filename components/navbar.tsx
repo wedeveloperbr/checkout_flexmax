@@ -31,7 +31,7 @@ export default function Navbar(){
             </div>
             <div className={css.backgroundOferta}>
                 <div className={css.textOferta}>
-                    Está oferta termina em: <span className={css.time}> 00:00:00</span>
+                    Esta oferta termina em: <span className={css.time}> 00H : 26M : 29S </span>
                 </div>
             </div>
         </div>

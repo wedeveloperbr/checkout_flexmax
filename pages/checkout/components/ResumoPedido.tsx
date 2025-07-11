@@ -10,14 +10,14 @@ interface ResumoPedidoProps {
 
 export default function ResumoPedido({ addOffer }: ResumoPedidoProps) {
     const [quantity, setQuantity] = useState(1)
-    const [coupon, setCoupon] = useState("FL3M14X200FF")
+    const [coupon, setCoupon] = useState("FL3M4X200FF")
     const [couponApplied, setCouponApplied] = useState(false)
 
     const basePrice = 149.9
     const offerPrice = 197.9
     const subtotal = basePrice * quantity + (addOffer ? offerPrice : 0)
-    const discount = couponApplied ? 52.0 : 0
-    const shipping = 0 // Grátis
+    const discount = couponApplied ? 39.9 : 0
+    const shipping = 0
     const total = subtotal - discount + shipping
 
     const handleQuantityChange = (change: number) => {
@@ -70,15 +70,7 @@ export default function ResumoPedido({ addOffer }: ResumoPedidoProps) {
                                         >
                                             <Minus size={12} />
                                         </button>
-                                        <span
-                                            style={{
-                                                margin: "0 12px",
-                                                fontSize: "14px",
-                                                fontWeight: "500",
-                                            }}
-                                        >
-                      {quantity}
-                    </span>
+                                        <span style={{ margin: "0 12px", fontSize: "14px", fontWeight: "500" }}>{quantity}</span>
                                         <button
                                             onClick={() => handleQuantityChange(1)}
                                             style={{
@@ -159,6 +151,37 @@ export default function ResumoPedido({ addOffer }: ResumoPedidoProps) {
                         <span className="titleProduct">Total</span>
                         <span className="titleProduct">{formatPrice(total)}</span>
                     </div>
+                </div>
+
+                {/* Avaliações */}
+                <div style={{ marginTop: "30px" }}>
+                    <div className="d-flex align-items-center mb-3">
+                        <img
+                            src="/placeholder.svg?height=40&width=40"
+                            style={{ width: "40px", height: "40px", borderRadius: "50%", marginRight: "12px" }}
+                        />
+                        <div>
+                            <div style={{ fontSize: "12px", fontWeight: "500" }}>Luana Weber</div>
+                            <div style={{ fontSize: "12px", color: "#FFD700" }}>★★★★★</div>
+                        </div>
+                    </div>
+                    <p style={{ fontSize: "12px", color: "#666", fontStyle: "italic" }}>
+                        "Compra rápida, entrega no prazo e produto de ótima qualidade. Recomendo!"
+                    </p>
+
+                    <div className="d-flex align-items-center mb-3 mt-4">
+                        <img
+                            src="/placeholder.svg?height=40&width=40"
+                            style={{ width: "40px", height: "40px", borderRadius: "50%", marginRight: "12px" }}
+                        />
+                        <div>
+                            <div style={{ fontSize: "12px", fontWeight: "500" }}>Rafael Martinez</div>
+                            <div style={{ fontSize: "12px", color: "#FFD700" }}>★★★★★</div>
+                        </div>
+                    </div>
+                    <p style={{ fontSize: "12px", color: "#666", fontStyle: "italic" }}>
+                        "A camiseta é super confortável e veste muito bem. Não esperava tanta qualidade por esse preço!"
+                    </p>
                 </div>
             </div>
         </div>
