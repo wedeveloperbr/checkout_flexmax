@@ -33,7 +33,7 @@ export default function DadosPessoais(){
                 </div>
                 <div>
                     <label className="labels" htmlFor="telefone">CPF</label>
-                    <input className="inputs" type="tel" id="telefone" name="telefone" required />
+                    <input className="inputs" placeholder="000.000.000-00" type="tel" id="telefone" name="telefone" required />
                 </div>
                 <button className="button-principal" type="submit">Continuar</button>
             </form>
