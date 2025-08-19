@@ -7,7 +7,7 @@ import {
 
 export default function Navbar(){
     return(
-        <div>
+        <div className={css.navbar}>
             <div className={css.backgroundNav}>
                 <Container>
                     <Row>

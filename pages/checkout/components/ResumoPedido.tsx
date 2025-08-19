@@ -152,37 +152,37 @@ export default function ResumoPedido({ addOffer }: ResumoPedidoProps) {
                         <span className="titleProduct">{formatPrice(total)}</span>
                     </div>
                 </div>
-
-                {/* Avaliações */}
-                <div style={{ marginTop: "30px" }}>
-                    <div className="d-flex align-items-center mb-3">
-                        <img
-                            src="/placeholder.svg?height=40&width=40"
-                            style={{ width: "40px", height: "40px", borderRadius: "50%", marginRight: "12px" }}
-                        />
-                        <div>
-                            <div style={{ fontSize: "12px", fontWeight: "500" }}>Luana Weber</div>
-                            <div style={{ fontSize: "12px", color: "#FFD700" }}>★★★★★</div>
-                        </div>
+            </div>
+            {/* Avaliações */}
+            <div className="cards mt-4">
+                <div className="d-flex align-items-center mb-3">
+                    <img
+                        src="/person.png"
+                        style={{ width: "40px", height: "40px", borderRadius: "50%", marginRight: "12px" }}
+                    />
+                    <div>
+                        <div style={{ fontSize: "18px", color: "#FBB000" }}>★★★★★</div>
+                        <div style={{ fontSize: "14px", fontWeight: "500" }}>Luana Weber</div>
                     </div>
-                    <p style={{ fontSize: "12px", color: "#666", fontStyle: "italic" }}>
-                        "Compra rápida, entrega no prazo e produto de ótima qualidade. Recomendo!"
-                    </p>
-
-                    <div className="d-flex align-items-center mb-3 mt-4">
-                        <img
-                            src="/placeholder.svg?height=40&width=40"
-                            style={{ width: "40px", height: "40px", borderRadius: "50%", marginRight: "12px" }}
-                        />
-                        <div>
-                            <div style={{ fontSize: "12px", fontWeight: "500" }}>Rafael Martinez</div>
-                            <div style={{ fontSize: "12px", color: "#FFD700" }}>★★★★★</div>
-                        </div>
-                    </div>
-                    <p style={{ fontSize: "12px", color: "#666", fontStyle: "italic" }}>
-                        "A camiseta é super confortável e veste muito bem. Não esperava tanta qualidade por esse preço!"
-                    </p>
                 </div>
+                <p style={{ fontSize: "12px", color: "#666", fontFamily: "Poppins, sans-serif", fontWeight: "400" }}>
+                    "Compra rápida, entrega no prazo e produto de ótima qualidade. Recomendo!"
+                </p>
+            </div>
+            <div className="cards mt-4">
+                <div className="d-flex align-items-center mb-3">
+                    <img
+                        src="/person.png"
+                        style={{ width: "40px", height: "40px", borderRadius: "50%", marginRight: "12px" }}
+                    />
+                    <div>
+                        <div style={{ fontSize: "18px", color: "#FBB000" }}>★★★★★</div>
+                        <div style={{ fontSize: "14px", fontWeight: "500" }}>Luana Weber</div>
+                    </div>
+                </div>
+                <p style={{ fontSize: "12px", color: "#666", fontFamily: "Poppins, sans-serif", fontWeight: "400" }}>
+                    "Compra rápida, entrega no prazo e produto de ótima qualidade. Recomendo!"
+                </p>
             </div>
         </div>
     )

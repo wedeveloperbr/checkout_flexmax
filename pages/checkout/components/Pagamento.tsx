@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { CreditCard, QrCode, FileText } from "phosphor-react"
 import { Row, Col } from "reactstrap"
+import Link from "next/link";
+import { InputMask } from "@react-input/mask"
 
 interface PagamentoProps {
     data: {
@@ -10,9 +12,10 @@ interface PagamentoProps {
         dados: any
     }
     onUpdate: (data: any) => void
+    checkoutData: any
 }
 
-export default function Pagamento({ data, onUpdate }: PagamentoProps) {
+export default function Pagamento({ data, onUpdate, checkoutData }: PagamentoProps) {
     const [selectedPayment, setSelectedPayment] = useState(data.tipo || "")
     const [cardData, setCardData] = useState({
         nome: "",
@@ -35,6 +38,12 @@ export default function Pagamento({ data, onUpdate }: PagamentoProps) {
         }
     }
 
+    const handlePaymentSubmit = () => {
+        localStorage.setItem("checkoutData", JSON.stringify({
+             ...checkoutData, pagamento: { tipo: selectedPayment, dados: cardData }
+         }))
+    }
+
     return (
         <div>
             {/* Cartão de Crédito */}
@@ -47,18 +56,19 @@ export default function Pagamento({ data, onUpdate }: PagamentoProps) {
                 onClick={() => handlePaymentSelect("cartao")}
             >
                 <div className="d-flex align-items-center">
-                    <input
-                        type="radio"
-                        name="payment"
-                        checked={selectedPayment === "cartao"}
-                        onChange={() => handlePaymentSelect("cartao")}
-                    />
                     <CreditCard size={22} style={{ margin: "0 10px" }} />
                     <span className="titleCards" style={{ margin: 0 }}>
             Cartão de crédito
           </span>
                     {selectedPayment === "cartao" && (
-                        <div style={{ marginLeft: "auto", color: "#41DA69", fontSize: "12px" }}>✓</div>
+                        <div style={{ marginLeft: "auto", color: "#41DA69", fontSize: "12px" }}>
+                            <input
+                                type="radio"
+                                name="payment"
+                                checked={selectedPayment === "cartao"}
+                                onChange={() => handlePaymentSelect("cartao")}
+                            />
+                        </div>
                     )}
                 </div>
 
@@ -73,7 +83,9 @@ export default function Pagamento({ data, onUpdate }: PagamentoProps) {
                         />
 
                         <div className="labels">Número do cartão</div>
-                        <input
+                        <InputMask
+                            mask="9999 9999 9999 9999"
+                            replacement={{ 9: /\d/ }}
                             className="inputs"
                             placeholder="1234 1234 1234 1234"
                             value={cardData.numero}
@@ -83,7 +95,9 @@ export default function Pagamento({ data, onUpdate }: PagamentoProps) {
                         <Row>
                             <Col md={6}>
                                 <div className="labels">Validade</div>
-                                <input
+                                <InputMask
+                                    mask="99/99"
+                                    replacement={{ 9: /\d/ }}
                                     className="inputs"
                                     placeholder="MM/AA"
                                     value={cardData.validade}
@@ -92,7 +106,9 @@ export default function Pagamento({ data, onUpdate }: PagamentoProps) {
                             </Col>
                             <Col md={6}>
                                 <div className="labels">CVC</div>
-                                <input
+                                <InputMask
+                                    mask="999"
+                                    replacement={{ 9: /\d/ }}
                                     className="inputs"
                                     placeholder="123"
                                     value={cardData.cvc}
@@ -126,17 +142,21 @@ export default function Pagamento({ data, onUpdate }: PagamentoProps) {
                 onClick={() => handlePaymentSelect("pix")}
             >
                 <div className="d-flex align-items-center">
-                    <input
-                        type="radio"
-                        name="payment"
-                        checked={selectedPayment === "pix"}
-                        onChange={() => handlePaymentSelect("pix")}
-                    />
-                    <QrCode size={22} style={{ margin: "0 10px" }} />
+                    <img src="/pix.svg" style={{ margin: "0 10px"}}/>
                     <span className="titleCards" style={{ margin: 0 }}>
             PIX
           </span>
-                    {selectedPayment === "pix" && <div style={{ marginLeft: "auto", color: "#41DA69", fontSize: "12px" }}>✓</div>}
+                    <div>
+
+                    </div>
+                    {selectedPayment === "pix" && <div style={{ marginLeft: "auto", color: "#41DA69", fontSize: "12px" }}>
+                        <input
+                            type="radio"
+                            name="payment"
+                            checked={selectedPayment === "pix"}
+                            onChange={() => handlePaymentSelect("pix")}
+                        />
+                    </div>}
                 </div>
             </div>
 
@@ -150,23 +170,30 @@ export default function Pagamento({ data, onUpdate }: PagamentoProps) {
                 onClick={() => handlePaymentSelect("boleto")}
             >
                 <div className="d-flex align-items-center">
-                    <input
-                        type="radio"
-                        name="payment"
-                        checked={selectedPayment === "boleto"}
-                        onChange={() => handlePaymentSelect("boleto")}
-                    />
-                    <FileText size={22} style={{ margin: "0 10px" }} />
+                    <img src="/boleto.svg" style={{ margin: "0 10px" }} />
                     <span className="titleCards" style={{ margin: 0 }}>
             Boleto
           </span>
                     {selectedPayment === "boleto" && (
-                        <div style={{ marginLeft: "auto", color: "#41DA69", fontSize: "12px" }}>✓</div>
+                        <div style={{ marginLeft: "auto", color: "#41DA69", fontSize: "12px" }}>
+                            <input
+                                type="radio"
+                                name="payment"
+                                checked={selectedPayment === "boleto"}
+                                onChange={() => handlePaymentSelect("boleto")}
+                            />
+                        </div>
                     )}
                 </div>
             </div>
 
-            {selectedPayment && <button className="button-principal">Finalizar compra</button>}
+            {selectedPayment && <Link href={`/checkout/sucess`}>
+                <button className="button-principal" onClick={() => {
+                    handlePaymentSubmit();
+                }}>
+                    Finalizar compra
+                </button>
+            </Link>}
         </div>
     )
 }

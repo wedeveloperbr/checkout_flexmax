@@ -67,10 +67,16 @@ export default function Checkout() {
     })
 
     const updateCheckoutData = (section: keyof CheckoutData, data: any) => {
-        setCheckoutData((prev) => ({
-            ...prev,
-            [section]: { ...prev[section], ...data },
-        }))
+        setCheckoutData((prev) => {
+            const updatedSection = { ...prev[section], ...data }
+            if (JSON.stringify(prev[section]) === JSON.stringify(updatedSection)) {
+                return prev
+            }
+            return {
+                ...prev,
+                [section]: updatedSection,
+            }
+        })
     }
 
     const nextStep = () => {
@@ -95,8 +101,7 @@ export default function Checkout() {
     }
 
     return (
-        <div style={{ backgroundColor: "#FCFFFC", minHeight: "100vh" }}>
-
+        <div className="bgbody">
             <div className="pt-5">
                 <Container>
                     <Row>
@@ -192,13 +197,10 @@ export default function Checkout() {
                                     {isStepCompleted(3) ? (
                                         <CheckCircle size={22} color="#41DA69" weight="fill" />
                                     ) : (
-                                        <Wallet size={22} color={currentStep === 3 ? "#000" : "#ccc"} />
+                                        <Wallet size={22} />
                                     )}
                                     <h2
                                         className="titleCards"
-                                        style={{
-                                            color: currentStep === 3 || isStepCompleted(3) ? "#191F2D" : "#ccc",
-                                        }}
                                     >
                                         Pagamento
                                     </h2>
@@ -211,7 +213,9 @@ export default function Checkout() {
                                 )}
 
                                 {currentStep === 3 && (
-                                    <Pagamento data={checkoutData.pagamento} onUpdate={(data) => updateCheckoutData("pagamento", data)} />
+                                    <Pagamento 
+                                        checkoutData={checkoutData}
+                                        data={checkoutData.pagamento} onUpdate={(data) => updateCheckoutData("pagamento", data)} />
                                 )}
                             </div>
                         </Col>

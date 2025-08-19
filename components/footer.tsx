@@ -6,14 +6,9 @@ import {ShieldCheck} from "@phosphor-icons/react";
 
 export default function Footer(){
     return(
-        <div style={{
-            position: 'absolute',
-            bottom: 25,
-            width: '100%',
-            left: '0',
-            right: '0',
+        <div className={css.bgfooter}
 
-        }}>
+        >
             <hr style={{opacity: 0.1}}/>
             <Container>
                 <div className="mt-4 d-flex align-items-center flex-column">
@@ -25,27 +20,27 @@ export default function Footer(){
                             Compra segura
                         </div>
                     </div>
-                    <div className="mt-4 d-flex align-items-center justify-content-center gap-2">
-                        <div>
+                    <div className="mt-4 d-flex justify-content-center gap-3">
+                        <div className={css.borderLogo}>
                             <img src="/mastercard.svg" alt="Logo" width="50px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
                         </div>
-                        <div>
-                            <img src="/mastercard.svg" alt="Logo" width="50px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
+                        <div className={css.borderLogo}>
+                            <img src="/visa.svg" alt="Logo" width="50px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
                         </div>
-                        <div>
-                            <img src="/mastercard.svg" alt="Logo" width="50px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
+                        <div className={css.borderLogo}>
+                            <img src="/qrcode.svg" alt="Logo" width="50px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
                         </div>
-                        <div>
-                            <img src="/mastercard.svg" alt="Logo" width="50px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
+                        <div className={css.borderLogo}>
+                            <img src="/elo.svg" alt="Logo" width="50px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
                         </div>
-                        <div>
-                            <img src="/mastercard.svg" alt="Logo" width="50px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
+                        <div className={css.borderLogo}>
+                            <img src="/hipercard.svg" alt="Logo" width="60px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
                         </div>
-                        <div>
-                            <img src="/mastercard.svg" alt="Logo" width="50px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
+                        <div className={css.borderLogo}>
+                            <img src="/amex.svg" alt="Logo" width="70px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
                         </div>
-                        <div>
-                            <img src="/mastercard.svg" alt="Logo" width="50px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
+                        <div className={css.borderLogo}>
+                            <img src="/pix.svg" alt="Logo" width="30px" style={{filter: 'grayscale(100%)', opacity: 0.8}} />
                         </div>
                     </div>
                     <div className={css.textFooter}>

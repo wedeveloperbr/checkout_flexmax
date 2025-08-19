@@ -1,5 +1,11 @@
 
 
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+
 .backgroundNav{
     background-color: #032603;
     padding: 20px 0;
@@ -37,6 +43,21 @@
     font-family: Poppins, sans-serif;
     font-weight: 500;
     font-size: 15px;
+}
+
+.bgfooter{
+    padding: 18px 18px;
+}
+
+.borderLogo{
+    width: 80px;
+    height: 50px;
+    border: 1px solid #191F2D1A;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .textFooter{

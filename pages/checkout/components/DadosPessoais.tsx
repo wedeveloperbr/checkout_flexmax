@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { CheckCircle } from "phosphor-react"
+import { InputMask } from "@react-input/mask"
 
 interface DadosPessoaisProps {
     data: {
@@ -86,11 +87,15 @@ export default function DadosPessoais({ data, onUpdate, onNext }: DadosPessoaisP
 
             <div className="labels">Telefone (WhatsApp)</div>
             <div style={{ position: "relative" }}>
-                <input
+                <InputMask
+                    mask="(__) _____-____"
+                    replacement={{ _: /\d/ }}
                     className="inputs"
                     placeholder="(11) 9 9000-0000"
                     value={formData.telefone}
-                    onChange={(e) => handleChange("telefone", e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        handleChange("telefone", e.target.value)
+                    }
                 />
                 {validFields.telefone && (
                     <CheckCircle
@@ -104,11 +109,13 @@ export default function DadosPessoais({ data, onUpdate, onNext }: DadosPessoaisP
 
             <div className="labels">Data de nascimento</div>
             <div style={{ position: "relative" }}>
-                <input
+                <InputMask
+                    mask="99/99/9999"
                     className="inputs"
+                    replacement={{ 9: /\d/ }}
                     placeholder="07/09/2000"
                     value={formData.dataNascimento}
-                    onChange={(e) => handleChange("dataNascimento", e.target.value)}
+                    onChange={(e: { target: { value: string } }) => handleChange("dataNascimento", e.target.value)}
                 />
                 {validFields.dataNascimento && (
                     <CheckCircle
@@ -122,11 +129,13 @@ export default function DadosPessoais({ data, onUpdate, onNext }: DadosPessoaisP
 
             <div className="labels">CPF</div>
             <div style={{ position: "relative" }}>
-                <input
+                <InputMask
+                    mask="999.999.999-99"
+                    replacement={{ 9: /\d/ }}
                     className="inputs"
                     placeholder="914.473.545-20"
                     value={formData.cpf}
-                    onChange={(e) => handleChange("cpf", e.target.value)}
+                    onChange={(e: { target: { value: string } }) => handleChange("cpf", e.target.value)}
                 />
                 {validFields.cpf && (
                     <CheckCircle

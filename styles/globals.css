@@ -43,6 +43,11 @@ a {
 }
 
 
+.bgbody{
+  background-color: #FCFFFC;
+  padding-top: 100px;
+}
+
 .cards{
   background: #FFFFFF;
   border: 1px solid #191F2D1A;
@@ -65,6 +70,7 @@ a {
   font-weight: 400;
   font-size: 14px;
   margin: 15px 0 0 0;
+  width: 296px;
 }
 
 .labels{
@@ -143,6 +149,7 @@ a {
   display: flex;
   align-items: center;
   gap: 8px;
+  border-radius: 8px;
 }
 
 .checkbox input[type="checkbox"] {

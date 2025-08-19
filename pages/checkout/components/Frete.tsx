@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { CheckCircle } from "phosphor-react"
-import { Row, Col } from "reactstrap"
+import { Row, Col, Input } from "reactstrap"
+import { InputMask } from "@react-input/mask"
 
 interface FreteProps {
     data: {
@@ -13,6 +14,7 @@ interface FreteProps {
         cidade: string
         estado: string
         destinatario: string
+        tipo: string
     }
     onUpdate: (data: any) => void
     onNext: () => void
@@ -21,7 +23,7 @@ interface FreteProps {
 export default function Frete({ data, onUpdate, onNext }: FreteProps) {
     const [formData, setFormData] = useState(data)
     const [validFields, setValidFields] = useState<{ [key: string]: boolean }>({})
-    const [selectedShipping, setSelectedShipping] = useState("")
+    const [selectedShipping, setSelectedShipping] = useState(data.tipo || "")
 
     useEffect(() => {
         onUpdate(formData)
@@ -53,11 +55,13 @@ export default function Frete({ data, onUpdate, onNext }: FreteProps) {
         <div>
             <div className="labels">CEP</div>
             <div style={{ position: "relative" }}>
-                <input
+                <InputMask
+                    mask="99999-999"
+                    replacement={{ 9: /\d/ }}
                     className="inputs"
                     placeholder="00000-000"
                     value={formData.cep}
-                    onChange={(e) => handleChange("cep", e.target.value)}
+                    onChange={(e: { target: { value: string } }) => handleChange("cep", e.target.value)}
                 />
                 {validFields.cep && (
                     <CheckCircle
@@ -91,11 +95,13 @@ export default function Frete({ data, onUpdate, onNext }: FreteProps) {
                 <Col md={6}>
                     <div className="labels">Número</div>
                     <div style={{ position: "relative" }}>
-                        <input
+                        <InputMask
+                            mask="9999"
+                            replacement={{ 9: /\d/ }}
                             className="inputs"
                             placeholder="23"
                             value={formData.numero}
-                            onChange={(e) => handleChange("numero", e.target.value)}
+                            onChange={(e: { target: { value: string } }) => handleChange("numero", e.target.value)}
                         />
                         {validFields.numero && (
                             <CheckCircle
@@ -172,15 +178,19 @@ export default function Frete({ data, onUpdate, onNext }: FreteProps) {
                         size={20}
                         color="#41DA69"
                         weight="fill"
-                        style={{ position: "absolute", right: "12px", top: "11px" }}
+                        style={{ position: "absolute", right: "12px", top: "11px"}}
                     />
                 )}
             </div>
 
             <div className="labels">Entrega</div>
 
-            <div className="checkbox mt-2" onClick={() => setSelectedShipping("PAC")}>
-                <input
+            <div className="checkbox mt-2 p-3" style={{
+                border: selectedShipping === "PAC" ? "1px solid #41DA69" : "1px solid #191F2D1A",
+                background: selectedShipping === "PAC" ? "#41DA690D" : "#FFFFFF",
+                }} onClick={() => setSelectedShipping("PAC")}>
+                <Input
+                    style={{border: 'solid 1px #191F2D'}}
                     type="radio"
                     name="shipping"
                     checked={selectedShipping === "PAC"}
@@ -197,8 +207,12 @@ export default function Frete({ data, onUpdate, onNext }: FreteProps) {
                 </div>
             </div>
 
-            <div className="checkbox mt-2" onClick={() => setSelectedShipping("SEDEX")}>
-                <input
+            <div className="checkbox mt-2 p-3" style={{
+                border: selectedShipping === "SEDEX" ? "1px solid #41DA69" : "1px solid #191F2D1A",
+                background: selectedShipping === "SEDEX" ? "#41DA690D" : "#FFFFFF",
+                }} onClick={() => setSelectedShipping("SEDEX")}>
+                <Input
+                    style={{border: 'solid 1px #191F2D'}}
                     type="radio"
                     name="shipping"
                     checked={selectedShipping === "SEDEX"}
@@ -215,8 +229,12 @@ export default function Frete({ data, onUpdate, onNext }: FreteProps) {
                 </div>
             </div>
 
-            <div className="checkbox mt-2" onClick={() => setSelectedShipping("Loggi")}>
-                <input
+            <div className="checkbox mt-2 p-3" style={{
+                border: selectedShipping === "Loggi" ? "1px solid #41DA69" : "1px solid #191F2D1A",
+                background: selectedShipping === "Loggi" ? "#41DA690D" : "#FFFFFF",
+                }} onClick={() => setSelectedShipping("Loggi")}>
+                <Input
+                    style={{border: 'solid 1px #191F2D'}}
                     type="radio"
                     name="shipping"
                     checked={selectedShipping === "Loggi"}
