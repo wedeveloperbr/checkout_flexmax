@@ -1,23 +1,42 @@
-"use client"
+"use client";
 
 import { ShieldCheck } from "phosphor-react";
-import { Container, Row, Col, Form } from "reactstrap";
-import css from "@/components/styles.module.css";
+import { Container, Row, Col } from "reactstrap";
+import css from "../checkout.module.css";
 import { useEffect, useState } from "react";
-import ResumoPedido from "../components/ResumoPedido";
+import ResumoPedido2 from "../components/ResumoPedido2";
 
 export default function Success() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        endereco: "",
-    });
+  const [addOffer, setAddOffer] = useState(false);
+  const [formData, setFormData] = useState({
+    dadosPessoais: {
+      nome: "",
+    },
+    email: "",
+    endereco: {
+      endereco: "",
+      cep: "",
+    },
+    frete: {
+      opcao: "",
+      valor: 0,
+    },
+    pagamento: {
+      tipo: "",
+      dados: {
+        numero: "",
+        nomeCartao: "",
+        validade: "",
+        cvv: "",
+      },
+    },
+  });
 
   useEffect(() => {
     const data = localStorage.getItem("checkoutData");
     console.log("Data from localStorage:", data);
     if (data) {
-        setFormData(JSON.parse(data));
+      setFormData(JSON.parse(data));
     }
   }, []);
 
@@ -26,62 +45,40 @@ export default function Success() {
   };
 
   console.log("Form Data:", formData);
-    return (
-        <div className="py-5">
-            <Container>
-                <Row className="justify-content-center">
-                    <Col md={6} className="text-center">
-                        <div className="mb-3">
-                            <ShieldCheck size={48} color="#41DA69" weight="fill" />
-                        </div>
+  return (
+    <Container>
+      <Row>
+        <div className={css.container}>
+          <Col md={8}>
+            <div className={css.info}>
+              <div className={css.infoItem}>
+                <ShieldCheck size={20} color="#41DA69"/>
+                Compra Realizada
+              </div>
 
-                        <div className={css.info}>
-                            <div>
-                                <ShieldCheck size={20} color="#41DA69" />
-                            </div>
-                            <div>
-                                Compra Realizada
-                            </div>
-                            <div>
+              <p className={css.infoText}>
+                Muito Obrigado {formData.dadosPessoais.nome}! <br />
+                Seu pedido foi realizado com sucesso.
+              </p>
 
-                            </div>
-                        </div>
+                <div className={css.endereco}>Endereço: {formData.endereco.endereco}</div>
+                <div className={css.cep}>CEP: {formData.endereco.cep}</div>
+                <div className={css.frete}>Frete: {formData.frete.opcao}</div>
+                <div className={css.numero}>{formData.pagamento.dados.numero}</div>
 
-                        <p className="text-muted mt-2">
-                            Muito Obrigado {formData.dadosPessoais.nome}!
-                            Seu pedido foi feito com sucesso.
-                        </p>
+              <div>
+                <button className={css.buttonsucess}>Voltar para loja</button>
+              </div>
+            </div>
+          </Col>
 
-                        <div>Endereço</div>
-                        <div>
-                            <input
-                                className="inputs"
-                                placeholder="Av. Paulista"
-                                value={formData.endereco.endereco}
-                                onChange={(e) => handleChange("endereco", e.target.value)}
-                            />
-                        </div>
-
-                        <div>CEP</div>
-                        <div>
-                            <input
-                                className="inputs"
-                                placeholder="12345-678"
-                                value={formData.endereco.cep}
-                                onChange={(e) => handleChange("cep", e.target.value)}
-                            />
-                        </div>
-
-                        <div className="mt-4">
-                            <button className="btn btn-success px-4">Voltar à loja</button>
-                        </div>
-                    </Col>
-
-                    <Col>
-                        <ResumoPedido />
-                    </Col>
-                </Row>
-            </Container>
+          <Col md={4} className="d-flex justify-content-end">
+            <div className={css.infoTotal}>
+              <ResumoPedido2 addOffer/>
+            </div>
+          </Col>
         </div>
-    );
+      </Row>
+    </Container>
+  );
 }

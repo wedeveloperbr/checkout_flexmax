@@ -1,15 +1,203 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.info {
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
+
+.infoItem {
+  margin-bottom: 40px;
+}
+
+.infoText {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.endereco {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.cep {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.frete {
+  margin-bottom: 20px;
+}
+
+.buttonsucess {
+  background-color: #41da69;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  margin-top: 30px;
+}
+
 .quantityButton {
-    width: 24px;
-    height: 24px;
-    border: 1px solid #191f2d1a;
-    background: transparent;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #191f2d1a;
+  background: transparent;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .quantityButton:hover {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
+}
+
+.infoTotal {
+  margin-top: 200px;
+}
+
+/* PIX */
+
+.aguardandoPagamento {
+  color: #ffa600;
+  margin-bottom: 40px;
+}
+
+.titlePix {
+  font-size: 26px;
+}
+
+.subtitlePix {
+  font-size: 18px;
+  margin-top: 40px;
+  font-weight: 500;
+}
+
+.infoPix {
+  margin-top: 20px;
+  font-weight: 400;
+}
+
+.containerPixRight {
+  margin-top: 200px;
+}
+
+.titlePixRight {
+  color: #191f2d;
+  font-size: 28px;
+}
+
+.iconPix {
+  margin-bottom: 20px;
+}
+
+.subtitlePixRight {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.valorText {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.botaoPix {
+  padding: 10px 30px;
+  background-color: transparent;
+  color: #191f2de5;
+  border: 1px solid #191f2d1a;
+  border-radius: 8px;
+}
+
+@media (max-width: 960px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info {
+    margin-bottom: 0;
+  }
+
+  .infoItem {
+    font-size: 20px;
+    text-align: left;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    color: #41da69;
+    font-weight: 500;
+  }
+
+  .infoText {
+    text-align: left;
+    font-size: 28px;
+    margin-left: 30px;
+  }
+
+  .endereco {
+    text-align: left;
+    margin-left: 30px;
+    margin-top: 30px;
+    font-size: 18px;
+  }
+
+  .cep {
+    text-align: left;
+    margin-left: 30px;
+    font-size: 18px;
+  }
+
+  .frete {
+    text-align: left;
+    margin-left: 30px;
+    font-size: 18px;
+  }
+
+  .numero {
+    text-align: left;
+    margin-left: 30px;
+    font-size: 18px;
+  }
+
+  .buttonsucess {
+    margin-left: 30px;
+    font-size: 18px;
+  }
+
+  /* PIX */
+
+  .aguardandoPagamento {
+    font-size: 20px;
+    margin-left: 15px;
+  }
+
+  .titlePix {
+    font-size: 24px;
+    margin-left: 15px;
+  }
+
+  .subtitlePix {
+    font-size: 16px;
+    margin-left: 15px;
+  }
+
+  .infoPix {
+    font-size: 15px;
+    margin-left: 15px;
+  }
+
+  .containerPixRight {
+    margin-left: 15px;
+  }
+
+  .titlePixRight {
+    margin-left: 15px;
+  }
 }

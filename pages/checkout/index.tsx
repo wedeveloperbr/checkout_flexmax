@@ -25,6 +25,7 @@ interface CheckoutData {
         cidade: string
         estado: string
         destinatario: string
+        tipo: string
     }
     frete: {
         opcao: string
@@ -55,6 +56,7 @@ export default function Checkout() {
             cidade: "",
             estado: "",
             destinatario: "",
+            tipo: "",
         },
         frete: {
             opcao: "",

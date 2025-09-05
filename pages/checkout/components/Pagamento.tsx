@@ -187,7 +187,7 @@ export default function Pagamento({ data, onUpdate, checkoutData }: PagamentoPro
                 </div>
             </div>
 
-            {selectedPayment && <Link href={`/checkout/sucess`}>
+            {selectedPayment && <Link href={`/checkout/sucesspix`}>
                 <button className="button-principal" onClick={() => {
                     handlePaymentSubmit();
                 }}>
