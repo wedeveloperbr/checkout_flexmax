@@ -37,11 +37,11 @@ export default function SucessBoleto() {
                                 </p>
                             </div>
                         </Col>
-                    <Col md={4} className="d-flex justify-content-end">
-                        <div className={css.containerPixRight}>
+                    <Col md={4} className="d-flex justify-content-end align-items-center">
+                        <div className={css.containerBoletoRight}>
                             <div className="cards">
-                                <div className={css.titlePixRight}>
-                                    <BarcodeIcon className={css.iconPix} size={28} color="#41DA69" />
+                                <div className={css.titleBoletoRight}>
+                                    <BarcodeIcon className={css.iconBoleto} size={28} color="#41DA69" />
                                     <br />
                                     Pagamento Pix
                                 </div>
@@ -54,7 +54,7 @@ export default function SucessBoleto() {
                                     <img src="/boleto.png" alt="qr code" style={{textAlign: "center"}}/>
                                 </div>
                                 <p className={css.ouText}>ou</p>
-                                <button className={css.botaoPix}>
+                                <button className={css.botaoBoleto}>
                                     <Copy size={26}/>
                                     Copiar código de barras</button>
                             </div>

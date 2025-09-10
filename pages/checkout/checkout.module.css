@@ -137,6 +137,40 @@
   border-radius: 8px;
 }
 
+/* BOLETO */
+
+.containerBoletoRight {
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.titleBoletoRight {
+  color: #191f2d;
+  font-size: 28px;
+}
+
+.iconBoleto {
+  margin-bottom: 20px;
+}
+
+.subtitleBoletoRight {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.botaoBoleto {
+  padding: 10px 30px;
+  background-color: transparent;
+  color: #191f2de5;
+  border: 1px solid #191f2d1a;
+  border-radius: 8px;
+}
+
 @media (max-width: 960px) {
   .container {
     display: flex;
@@ -215,10 +249,15 @@
   }
 
   .containerPixRight {
-    margin-left: 15px;
+    margin-left: 50px;
   }
 
   .titlePixRight {
     margin-left: 15px;
+  }
+
+  /* BOLETO */
+  .containerBoletoRight {
+    margin-left: 0px;
   }
 }
