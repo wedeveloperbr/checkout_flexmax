@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import ResumoPedido2 from "../components/ResumoPedido2";
 
 export default function Success() {
-  const [addOffer, setAddOffer] = useState(false);
   const [formData, setFormData] = useState({
     dadosPessoais: {
       nome: "",
@@ -39,10 +38,6 @@ export default function Success() {
       setFormData(JSON.parse(data));
     }
   }, []);
-
-  const handleChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
 
   console.log("Form Data:", formData);
   return (

@@ -27,12 +27,12 @@ export default function SucessPix() {
                 1. Abra o app do seu banco no celular.
               </p>
               <p className={css.infoPix}>
-                2. Vá em "Pagamentos" ou "Transferências".
+                2. Vá em Pagamentos ou Transferências.
               </p>
               <p className={css.infoPix}>3. Escolha PIX e selecione QR Code.</p>
               <p className={css.infoPix}>
                 4. Aponte a câmera para o QR Code ou clique em
-                <br /> "Copiar código" e cole no app do banco.
+                <br /> Copiar código e cole no app do banco.
               </p>
               <p className={css.infoPix}>
                 5. Confirme o valor e conclua o pagamento.

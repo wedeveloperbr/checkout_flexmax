@@ -1,11 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { CreditCard, QrCode, FileText } from "phosphor-react"
+import { CreditCard } from "phosphor-react"
 import { Row, Col } from "reactstrap"
 import Link from "next/link";
 import { InputMask } from "@react-input/mask"
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface PagamentoProps {
     data: {
         tipo: string
@@ -187,7 +188,7 @@ export default function Pagamento({ data, onUpdate, checkoutData }: PagamentoPro
                 </div>
             </div>
 
-            {selectedPayment && <Link href={`/checkout/sucess`}>
+            {selectedPayment && <Link href={`/checkout/sucessboleto`}>
                 <button className="button-principal" onClick={() => {
                     handlePaymentSubmit();
                 }}>

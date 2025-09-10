@@ -9,6 +9,7 @@ import ResumoPedido from "@/pages/checkout/components/ResumoPedido"
 import Oferta from "@/pages/checkout/components/Oferta"
 import { CheckCircle, Package, Wallet, User } from "phosphor-react"
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface CheckoutData {
     dadosPessoais: {
         nome: string
@@ -68,6 +69,7 @@ export default function Checkout() {
         },
     })
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const updateCheckoutData = (section: keyof CheckoutData, data: any) => {
         setCheckoutData((prev) => {
             const updatedSection = { ...prev[section], ...data }

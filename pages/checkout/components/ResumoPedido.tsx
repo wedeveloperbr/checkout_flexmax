@@ -166,7 +166,7 @@ export default function ResumoPedido({ addOffer }: ResumoPedidoProps) {
                     </div>
                 </div>
                 <p style={{ fontSize: "12px", color: "#666", fontFamily: "Poppins, sans-serif", fontWeight: "400" }}>
-                    "Compra rápida, entrega no prazo e produto de ótima qualidade. Recomendo!"
+                    Compra rápida, entrega no prazo e produto de ótima qualidade. Recomendo!
                 </p>
             </div>
             <div className="cards mt-4">
@@ -181,7 +181,7 @@ export default function ResumoPedido({ addOffer }: ResumoPedidoProps) {
                     </div>
                 </div>
                 <p style={{ fontSize: "12px", color: "#666", fontFamily: "Poppins, sans-serif", fontWeight: "400" }}>
-                    "Compra rápida, entrega no prazo e produto de ótima qualidade. Recomendo!"
+                    Compra rápida, entrega no prazo e produto de ótima qualidade. Recomendo!
                 </p>
             </div>
         </div>

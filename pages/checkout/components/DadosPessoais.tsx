@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { CheckCircle } from "phosphor-react"
 import { InputMask } from "@react-input/mask"
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface DadosPessoaisProps {
     data: {
         nome: string

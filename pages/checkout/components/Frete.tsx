@@ -5,6 +5,7 @@ import { CheckCircle } from "phosphor-react"
 import { Row, Col, Input } from "reactstrap"
 import { InputMask } from "@react-input/mask"
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface FreteProps {
     data: {
         cep: string
