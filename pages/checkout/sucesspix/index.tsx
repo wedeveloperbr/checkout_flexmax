@@ -57,7 +57,7 @@ export default function SucessPix() {
                 <div className="cards">
                   <img src="/QrCode.png" alt="qr code" style={{textAlign: "center"}}/>
                 </div>
-                <p>ou</p>
+                <p className={css.ouText}>ou</p>
                 <button className={css.botaoPix}>
                 <Copy size={26}/>
                 Copiar código pix</button>
